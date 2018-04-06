@@ -65,7 +65,7 @@ def _input_fn(input_filenames, num_epochs=None, shuffle=True):
   return features, labels
 
 # 50 informative terms that compose our model vocabulary 
-'''informative_terms = ("bad", "great", "best", "worst", "fun", "beautiful",
+informative_terms = ("bad", "great", "best", "worst", "fun", "beautiful",
                      "excellent", "poor", "boring", "awful", "terrible",
                      "definitely", "perfect", "liked", "worse", "waste",
                      "entertaining", "loved", "unfortunately", "amazing",
@@ -77,4 +77,3 @@ def _input_fn(input_filenames, num_epochs=None, shuffle=True):
                      "drama", "family")
 
 terms_feature_column = tf.feature_column.categorical_column_with_vocabulary_list(key="terms", vocabulary_list=informative_terms)
-'''
