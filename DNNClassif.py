@@ -14,7 +14,7 @@ periods = 10
 steps = 1000
 steps_per_period = steps / periods 
 
-my_optimizer = tf.train.AdagradOptimizer(learning_rate=0.1)
+my_optimizer = tf.train.AdagradOptimizer(learning_rate=0.3)
 my_optimizer = tf.contrib.estimator.clip_gradients_by_norm(my_optimizer, 5.0)
 
 classifier = tf.estimator.DNNClassifier(
