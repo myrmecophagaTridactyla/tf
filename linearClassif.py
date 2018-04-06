@@ -25,7 +25,7 @@ for period in range (0, periods):
 
   evaluation_metrics = classifier.evaluate(
     input_fn=lambda: _input_fn([train_path]),
-    steps=1000)
+    steps=steps_per_period*(period+1))
   print "Training set metrics:"
   for m in evaluation_metrics:
     print m, evaluation_metrics[m]
