@@ -14,6 +14,7 @@ train_path = tf.keras.utils.get_file(train_url.split('/')[-1], train_url)
 test_url = 'https://storage.googleapis.com/mledu-datasets/sparse-data-embedding/test.tfrecord'
 test_path = tf.keras.utils.get_file(test_url.split('/')[-1], test_url)
 
+#parse function
 def _parse_function(record):
   """Extracts features and labels.
   
@@ -40,12 +41,6 @@ def _parse_function(record):
 ds = tf.data.TFRecordDataset(train_path)
 # Map features and labels with the parse function.
 ds = ds.map(_parse_function)
-
-ds
-
-n = ds.make_one_shot_iterator().get_next()
-sess = tf.Session()
-sess.run(n)
 
 # Create an input_fn that parses the tf.Examples from the given files,
 # and split them into features and targets.
