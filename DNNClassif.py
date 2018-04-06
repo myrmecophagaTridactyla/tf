@@ -7,14 +7,14 @@ with open("/home/vagrant/tf/terms.txt", 'r') as f:
 terms_feature_column = tf.feature_column.categorical_column_with_vocabulary_list(key="terms", 
                                                                                  vocabulary_list=informative_terms)
 
-terms_embedding_column = tf.feature_column.embedding_column(terms_feature_column, dimension=20)
+terms_embedding_column = tf.feature_column.embedding_column(terms_feature_column, dimension=13)
 feature_columns = [ terms_embedding_column ]
 
 periods = 10
 steps = 1000
 steps_per_period = steps / periods 
 
-my_optimizer = tf.train.AdagradOptimizer(learning_rate=0.3)
+my_optimizer = tf.train.AdagradOptimizer(learning_rate=0.1)
 my_optimizer = tf.contrib.estimator.clip_gradients_by_norm(my_optimizer, 5.0)
 
 classifier = tf.estimator.DNNClassifier(
