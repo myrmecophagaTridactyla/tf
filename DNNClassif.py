@@ -1,8 +1,6 @@
-!wget https://storage.googleapis.com/mledu-datasets/sparse-data-embedding/terms.txt -O /tmp/terms.txt
-
 # Create a feature column from "terms", using a full vocabulary file.
 informative_terms = None
-with open("/tmp/terms.txt", 'r') as f:
+with open("/home/vagrant/tf/terms.txt", 'r') as f:
   # Convert it to a set first to remove duplicates.
   informative_terms = list(set(f.read().split()))
   
